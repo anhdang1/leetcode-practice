@@ -6,8 +6,13 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i,j]
+        prevMap = {}  #val: index
+        
+        for i, n in enumerate(nums):  #i is index and n is value
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[n] = i   #for n value the index is i
             
+            
+        
