@@ -10,7 +10,7 @@ class Solution:
         :type root: TreeNode
         :rtype: List[int]
         """
-        """
+        
         res = []
         
         def inorder(root):
@@ -22,8 +22,10 @@ class Solution:
             inorder(root.right)
         
         inorder(root)
-        return res """
-        
+        return res 
+    
+        """
         if root is None:
             return []
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+        """
