@@ -10,7 +10,8 @@ class Solution:
             for s in strs:
                 if i == len(s) or strs[0][i] != s[i]:
                     return res
-            res += s[i]
+            res += strs[0][i]
         
         return res
-        
+    
+    
