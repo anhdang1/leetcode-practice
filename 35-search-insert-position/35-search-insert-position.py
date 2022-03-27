@@ -19,7 +19,7 @@ class Solution(object):
             
             if nums[mid] == target:
                 return mid
-            if target > nums[mid]:
+            elif target > nums[mid]:
                 l = mid + 1
             else: #if target < nums[mid]
                 r = mid - 1
