@@ -4,10 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        l = 1
-        for r in range(1,len(nums)):
-            if nums[r] != nums[r-1]:
-                nums[l] = nums[r]
-                l += 1
-        return l
-                
+        k = 1
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i-1]:
+                nums[k] = nums[i]
+                k += 1
+        return k
