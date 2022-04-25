@@ -6,15 +6,19 @@
 
 
 
-SELECT a.stock_name as stock_name, (b.price - a.price) as capital_gain_loss
-FROM
-(SELECT stock_name, sum(price) as price
-FROM stocks
-WHERE operation = "Buy"
-GROUP BY stock_name) a,
-(SELECT stock_name, sum(price) as price
-FROM stocks
-WHERE operation = "Sell"
-GROUP BY stock_name) b
-WHERE a.stock_name = b.stock_name;
+#SELECT a.stock_name as stock_name, (b.price - a.price) as capital_gain_loss
+#FROM
+#(SELECT stock_name, sum(price) as price
+#FROM stocks
+#WHERE operation = "Buy"
+#GROUP BY stock_name) a,
+#(SELECT stock_name, sum(price) as price
+#FROM stocks
+#WHERE operation = "Sell"
+#GROUP BY stock_name) b
+#WHERE a.stock_name = b.stock_name; 
+
+SELECT stock_name, SUM(CASE WHEN operation = 'Buy' THEN price*-1 ELSE price END) AS capital_gain_loss
+FROM Stocks
+GROUP BY stock_name
 
